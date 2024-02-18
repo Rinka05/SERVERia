@@ -7,10 +7,10 @@ import {useSocket} from "../providers/Socket"
 
 
 function Homepage() {
-  const { socket } = useSocket();
-  const navigate = useNavigate();
- const [email , setEmail] = useState(null);
- const [roomId , setRoomId] = useState(0);
+const { socket } = useSocket();
+const navigate = useNavigate();
+const [email , setEmail] = useState(null);
+const [roomId , setRoomId] = useState(0);
 
  const handleRoomJoined = useCallback(({roomId}) =>{
   navigate(`/room/${roomId}`);
@@ -25,11 +25,9 @@ useEffect(()=>{
 } ,[handleRoomJoined,socket])
 
 
-
   const handleJoinRoom = ()=>{
      socket.emit('join-room' , {emailId: email , roomId })
   }
-
 
   return (
     <div className='homepage-container'>

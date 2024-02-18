@@ -6,7 +6,6 @@ const PeerContext = React.createContext(null);
 
 export const usePeer = () => React.useContext(PeerContext)
 
-
 export const PeerProvider = (props) =>{
     const [remoteStream , setRemoteStream ] = useState(null)
     // RTCPeerconnection collects public information and keeps in peer
@@ -34,6 +33,7 @@ const createAnswer = async(offer) => {
     await peer.setLocalDescription(answer);
     return answer;
 }
+
 
 const setRemoteAns = async(ans) =>{
     await peer.setRemoteDescription(ans)
